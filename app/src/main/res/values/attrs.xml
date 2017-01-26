@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<declare-styleable name="LoadingView">
+		<attr name="smallMode" format="boolean"/>
+	</declare-styleable>
+
+	<declare-styleable name="BoolView">
+		<attr name="boolTitle" format="string"/>
+		<attr name="checked" format="boolean"/>
+		<attr name="boolSubtitle" format="string"/>
+		<attr name="drawableLeft" format="reference"/>
+	</declare-styleable>
+
+	<declare-styleable name="TextInfoView">
+		<attr name="infoTitle" format="string"/>
+		<attr name="infoEmpty" format="string"/>
+		<attr name="drawableRight" format="reference"/>
+	</declare-styleable>
+
+	<declare-styleable name="SingleSelectView">
+		<attr name="singleSelectTitle" format="string"/>
+		<attr name="singleSelectOptions" format="reference"/>
+	</declare-styleable>
+
+	<declare-styleable name="DromEditTextView">
+		<attr name="editTitle" format="string"/>
+		<attr name="editSubtitle" format="string"/>
+	</declare-styleable>
+</resources>

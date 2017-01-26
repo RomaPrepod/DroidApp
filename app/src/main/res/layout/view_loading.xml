@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<LinearLayout
+		android:id="@+id/loading_layout"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="10dp"
+		android:paddingBottom="10dp"
+		android:layout_gravity="center"
+		android:gravity="center"
+		>
+
+		<TextView
+			android:id="@+id/loading_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:textSize="14sp"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			android:paddingBottom="10dp"
+			android:visibility="gone"
+			/>
+
+		<ProgressBar
+			style="@style/Widget.AppCompat.ProgressBar"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			/>
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/error_layout"
+		android:orientation="vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:gravity="center"
+		>
+
+		<ImageView
+			android:id="@+id/loading_error_image"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingBottom="40dp"
+			/>
+
+		<TextView
+			android:id="@+id/loading_error_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:textSize="16sp"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			android:paddingBottom="10dp"
+			/>
+
+		<TextView
+			android:id="@+id/loading_retry_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="14sp"
+			android:textAllCaps="true"
+			android:text="Повтор"
+			android:textColor="#DA4336"
+			android:padding="6dp"
+			android:background="@drawable/selector_default"
+			/>
+	</LinearLayout>
+</merge>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center"
+	android:gravity="center"
+	android:orientation="vertical"
+	android:padding="8dp"
+	>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:paddingBottom="4dp"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		android:text="Не удалось загрузить данные"
+		android:textColor="@color/black"
+		android:textSize="14sp"
+		/>
+
+	<TextView
+		android:id="@+id/loading_retry_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/selector_default"
+		android:clickable="true"
+		android:padding="6dp"
+		android:text="Повтор"
+		android:textAllCaps="true"
+		android:textColor="@color/colorAccent"
+		android:textSize="14sp"
+		/>
+</LinearLayout>

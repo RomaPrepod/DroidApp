@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	>
+
+	<item
+		android:id="@+id/section_lectures"
+		android:icon="@drawable/ic_home"
+		android:title="@string/section_lectures"
+		/>
+
+	<item
+		android:id="@+id/section_labs"
+		android:icon="@drawable/ic_edit"
+		android:title="@string/section_labs"
+		/>
+
+	<item
+		android:id="@+id/section_tests"
+		android:icon="@drawable/ic_desktop"
+		android:title="@string/section_tests"
+		/>
+
+	<item
+		android:id="@+id/section_results"
+		android:icon="@drawable/ic_table"
+		android:title="@string/section_results"
+		/>
+
+	<item
+		android:id="@+id/section_profile"
+		android:icon="@drawable/ic_user"
+		android:title="@string/section_profile"
+		/>
+</menu>

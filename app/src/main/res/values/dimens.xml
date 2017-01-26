@@ -1,0 +1,4 @@
+<resources>
+	<dimen name="container_vpadding">16dp</dimen>
+	<dimen name="container_hpadding">16dp</dimen>
+</resources>

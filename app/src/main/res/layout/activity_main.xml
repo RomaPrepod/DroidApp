@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".ui.activity.MainActivity"
+		>
+
+		<android.support.design.widget.AppBarLayout
+			android:id="@+id/toolbar_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:elevation="3dp"
+			android:fitsSystemWindows="true"
+			android:stateListAnimator="@null"
+			>
+
+			<android.support.v7.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="?attr/colorPrimary"
+				android:elevation="0dp"
+				android:fitsSystemWindows="true"
+				android:minHeight="?attr/actionBarSize"
+				app:contentInsetStartWithNavigation="0dp"
+				app:theme="@style/AppTheme.Toolbar"
+				app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
+				/>
+
+			<android.support.design.widget.TabLayout
+				android:id="@+id/tab_layout"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_gravity="top"
+				android:visibility="gone"
+				/>
+		</android.support.design.widget.AppBarLayout>
+
+		<FrameLayout
+			android:id="@+id/fragment_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_above="@+id/navigation"
+			android:layout_below="@+id/toolbar_container"
+			/>
+
+		<android.support.design.widget.BottomNavigationView
+			android:id="@+id/navigation"
+			android:layout_width="match_parent"
+			android:layout_height="56dp"
+			android:layout_alignParentBottom="true"
+			android:layout_gravity="start"
+			android:background="@color/colorPrimary"
+			app:elevation="3dp"
+			app:itemIconTint="@android:color/white"
+			app:itemTextColor="@android:color/white"
+			app:menu="@menu/main_bottom"
+			/>
+	</RelativeLayout>
+</layout>

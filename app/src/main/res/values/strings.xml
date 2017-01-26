@@ -1,0 +1,9 @@
+<resources>
+	<string name="app_name">RomaPrepod</string>
+
+	<string name="section_lectures">Лекции</string>
+	<string name="section_labs">Лабы</string>
+	<string name="section_tests">Контрольные</string>
+	<string name="section_results">Результаты</string>
+	<string name="section_profile">Профиль</string>
+</resources>
