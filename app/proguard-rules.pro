@@ -35,7 +35,7 @@
 
 #databinding
 -dontwarn android.databinding.**
--keep class com.ebi.romastudent.databinding.** {
+-keep class ru.ebi.romaprepod.databinding.** {
     <fields>;
     <methods>;
 }

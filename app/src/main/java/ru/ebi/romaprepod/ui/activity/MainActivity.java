@@ -47,50 +47,7 @@ public class MainActivity extends BaseActivity {
 			binding.navigation.getMenu().findItem(currentSection).setChecked(true);
 		}
 
-		binding.navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-			@Override
-			public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-				Fragment fragmentOld = getContentFragment();
-				Fragment fragmentNew = null;
-				switch (item.getItemId()) {
-					case R.id.section_lectures:
-						if (!(fragmentOld instanceof LecturesFragment)) {
-							fragmentNew = new LecturesFragment();
-						}
-						break;
-					case R.id.section_labs:
-						if (!(fragmentOld instanceof LabsFragment)) {
-							fragmentNew = new LabsFragment();
-						}
-						break;
-					case R.id.section_tests:
-						if (!(fragmentOld instanceof TestsFragment)) {
-							fragmentNew = new TestsFragment();
-						}
-						break;
-					case R.id.section_results:
-						if (!(fragmentOld instanceof ResultsFragment)) {
-							fragmentNew = new ResultsFragment();
-						}
-						break;
-					case R.id.section_profile:
-						if (!(fragmentOld instanceof ProfileFragment)) {
-							fragmentNew = new ProfileFragment();
-						}
-						break;
-				}
-				if (fragmentNew != null) {
-					currentSection = item.getItemId();
-					getSupportFragmentManager().beginTransaction()
-							.replace(R.id.fragment_container, fragmentNew)
-							.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-							.commit();
-					supportInvalidateOptionsMenu();
-					return true;
-				}
-				return false;
-			}
-		});
+		binding.navigation.setOnNavigationItemSelectedListener(navigationListener);
 	}
 
 	@Override
@@ -102,4 +59,49 @@ public class MainActivity extends BaseActivity {
 	private Fragment getContentFragment() {
 		return getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 	}
+
+	private BottomNavigationView.OnNavigationItemSelectedListener navigationListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+		@Override
+		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+			Fragment fragmentOld = getContentFragment();
+			Fragment fragmentNew = null;
+			switch (item.getItemId()) {
+				case R.id.section_lectures:
+					if (!(fragmentOld instanceof LecturesFragment)) {
+						fragmentNew = new LecturesFragment();
+					}
+					break;
+				case R.id.section_labs:
+					if (!(fragmentOld instanceof LabsFragment)) {
+						fragmentNew = new LabsFragment();
+					}
+					break;
+				case R.id.section_tests:
+					if (!(fragmentOld instanceof TestsFragment)) {
+						fragmentNew = new TestsFragment();
+					}
+					break;
+				case R.id.section_results:
+					if (!(fragmentOld instanceof ResultsFragment)) {
+						fragmentNew = new ResultsFragment();
+					}
+					break;
+				case R.id.section_profile:
+					if (!(fragmentOld instanceof ProfileFragment)) {
+						fragmentNew = new ProfileFragment();
+					}
+					break;
+			}
+			if (fragmentNew != null) {
+				currentSection = item.getItemId();
+				getSupportFragmentManager().beginTransaction()
+						.replace(R.id.fragment_container, fragmentNew)
+						.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+						.commit();
+				supportInvalidateOptionsMenu();
+				return true;
+			}
+			return false;
+		}
+	};
 }
