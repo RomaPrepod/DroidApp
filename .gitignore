@@ -52,3 +52,8 @@ obj/
 
 /projectFilesBackup/
 !/.idea/codeStyleSettings.xml
+
+# Keys
+/gradle.properties
+/app/fabric.properties
+/app/config/

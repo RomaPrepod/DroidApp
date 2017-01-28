@@ -39,8 +39,8 @@
 				<category android:name="android.intent.category.BROWSABLE"/>
 
 				<data
-					android:host="{YOUR_AUTH0_DOMAIN}"
-					android:pathPrefix="/android/{applicationId}/callback"
+					android:host="${AUTH0_DOMAIN}"
+					android:pathPrefix="/android/${applicationId}/callback"
 					android:scheme="https"
 					/>
 			</intent-filter>

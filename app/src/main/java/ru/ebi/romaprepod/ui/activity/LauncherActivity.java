@@ -12,6 +12,8 @@ import com.auth0.android.lock.LockCallback;
 import com.auth0.android.lock.utils.LockException;
 import com.auth0.android.result.Credentials;
 
+import ru.ebi.romaprepod.BuildConfig;
+
 public class LauncherActivity extends BaseActivity {
 
 	private Lock lock;
@@ -22,7 +24,7 @@ public class LauncherActivity extends BaseActivity {
 
 		if (false) {
 			// Your own Activity code
-			Auth0 auth0 = new Auth0("YOUR_AUTH0_CLIENT_ID", "YOUR_AUTH0_DOMAIN");
+			Auth0 auth0 = new Auth0(BuildConfig.AUTH0_CLIENT_ID, BuildConfig.AUTH0_DOMAIN);
 			lock = Lock.newBuilder(auth0, callback)
 					//Customize Lock
 					.build(this);

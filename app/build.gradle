@@ -26,10 +26,10 @@ android {
 	}
 	signingConfigs {
 		release {
-			storeFile file("release/keystore.jks")
-			storePassword "htiyti54151"
-			keyAlias "r4rr5er"
-			keyPassword "er4g5df"
+			storeFile file("config/keystore.jks")
+			storePassword RELEASE_STORE_PASSWORD
+			keyAlias RELEASE_KEY_ALIAS
+			keyPassword RELEASE_KEY_PASSWORD
 		}
 	}
 	buildTypes {
@@ -104,6 +104,12 @@ dependencies {
 	compile('com.crashlytics.sdk.android:crashlytics:2.6.6@aar') {
 		transitive = true;
 	}
+}
+
+android.buildTypes.each { type ->
+	type.buildConfigField 'String', 'AUTH0_CLIENT_ID', '"' + AUTH0_CLIENT_ID + '"'
+	type.buildConfigField 'String', 'AUTH0_DOMAIN', '"' + AUTH0_DOMAIN + '"'
+	type.manifestPlaceholders = [AUTH0_DOMAIN: AUTH0_DOMAIN]
 }
 
 gradle.projectsEvaluated {
