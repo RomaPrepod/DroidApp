@@ -12,7 +12,10 @@ import com.auth0.android.lock.LockCallback;
 import com.auth0.android.lock.utils.LockException;
 import com.auth0.android.result.Credentials;
 
+import java.util.Collections;
+
 import ru.ebi.romaprepod.BuildConfig;
+import ru.ebi.romaprepod.repository.UserManager;
 
 public class LauncherActivity extends BaseActivity {
 
@@ -22,11 +25,13 @@ public class LauncherActivity extends BaseActivity {
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		if (false) {
-			// Your own Activity code
+		if (true) {
 			Auth0 auth0 = new Auth0(BuildConfig.AUTH0_CLIENT_ID, BuildConfig.AUTH0_DOMAIN);
 			lock = Lock.newBuilder(auth0, callback)
-					//Customize Lock
+					.closable(false)
+					.loginAfterSignUp(true)
+					.useBrowser(false)
+					.withAuthenticationParameters(Collections.singletonMap("scope", (Object) "openid email name picture groups roles"))
 					.build(this);
 
 			startActivity(lock.newIntent(this));
@@ -51,7 +56,13 @@ public class LauncherActivity extends BaseActivity {
 	private LockCallback callback = new AuthenticationCallback() {
 		@Override
 		public void onAuthentication(Credentials credentials) {
-			Log.d("LockCallback", "onAuthentication: " + credentials.toString());
+			Log.d("LockCallback", "getAccessToken: " + credentials.getAccessToken());
+			Log.d("LockCallback", "getIdToken: " + credentials.getIdToken());
+			Log.d("LockCallback", "getRefreshToken: " + credentials.getRefreshToken());
+			Log.d("LockCallback", "getType: " + credentials.getType());
+
+			UserManager.setUser(credentials.getIdToken());
+
 			startActivity(new Intent(LauncherActivity.this, MainActivity.class));
 			getWindow().setWindowAnimations(0);
 			finish();

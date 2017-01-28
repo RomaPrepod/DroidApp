@@ -59,7 +59,7 @@ public class Blogger {
 		Log.d(log, String.format(Locale.US, format, args));
 	}
 
-	private static String listToString(Iterable iterable) {
+	public static String listToString(Iterable iterable) {
 		StringBuilder sb = new StringBuilder();
 
 		for (Object obj : iterable) {

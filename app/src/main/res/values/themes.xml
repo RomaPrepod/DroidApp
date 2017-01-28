@@ -15,10 +15,17 @@
 	<style name="AppTheme" parent="BaseTheme">
 	</style>
 
-	<style name="Theme.Drom.Gallery" parent="Theme.AppCompat.Light.DarkActionBar">
+	<style name="AppTheme.Gallery" parent="Theme.AppCompat.Light.DarkActionBar">
 		<item name="colorPrimary">@android:color/transparent</item>
 		<item name="android:windowContentOverlay">@null</item>
 		<item name="android:windowActionBarOverlay">true</item>
 		<item name="android:windowBackground">@android:color/black</item>
+	</style>
+
+	<style name="MyLockTheme" parent="Lock.Theme">
+		<item name="Auth0.HeaderLogo">@mipmap/ic_launcher</item>
+		<item name="Auth0.HeaderTitle">Привет</item>
+		<item name="Auth0.PrimaryColor">@color/colorPrimary</item>
+		<item name="Auth0.DarkPrimaryColor">@color/colorPrimaryDark</item>
 	</style>
 </resources>

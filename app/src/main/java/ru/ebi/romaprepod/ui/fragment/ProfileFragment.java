@@ -3,19 +3,20 @@ package ru.ebi.romaprepod.ui.fragment;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Locale;
+
 import ru.ebi.romaprepod.R;
-import ru.ebi.romaprepod.databinding.FragmentLecturesBinding;
-import ru.ebi.romaprepod.ui.adapter.EntryAdapter;
-import ru.ebi.romaprepod.ui.adapter.EntryListProvider;
+import ru.ebi.romaprepod.databinding.FragmentProfileBinding;
+import ru.ebi.romaprepod.repository.UserManager;
+import ru.ebi.romaprepod.util.Blogger;
 
 public class ProfileFragment extends BaseFragment {
 
-	private FragmentLecturesBinding binding;
+	private FragmentProfileBinding binding;
 
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class ProfileFragment extends BaseFragment {
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		binding = DataBindingUtil.inflate(inflater, R.layout.fragment_lectures, container, false);
+		binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
 		return binding.getRoot();
 	}
 
@@ -33,19 +34,15 @@ public class ProfileFragment extends BaseFragment {
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		binding.loadingView.setOnRetryListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				load();
-			}
-		});
-
-		EntryAdapter adapter = new EntryAdapter();
-		EntryListProvider entryProvider = new EntryListProvider();
-		adapter.setEntryProvider(entryProvider);
-
-		binding.list.setLayoutManager(new LinearLayoutManager(getContext()));
-		binding.list.setAdapter(adapter);
+		binding.text.setText(String.format(Locale.US, "getId: %s\ngetIssuer: %s\ngetSignature: %s\ngetSubject: %s\ngetAudience: %s\ngetHeader: %s\ngetClaim: %s\n",
+				UserManager.getUser().getId(),
+				UserManager.getUser().getIssuer(),
+				UserManager.getUser().getSignature(),
+				UserManager.getUser().getSubject(),
+				Blogger.listToString(UserManager.getUser().getAudience()),
+				Blogger.listToString(UserManager.getUser().getHeader().entrySet()),
+				UserManager.getUser().getClaim("email").asString()
+		));
 	}
 
 	private void load() {
