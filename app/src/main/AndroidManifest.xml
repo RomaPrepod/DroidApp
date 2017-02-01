@@ -51,11 +51,6 @@
 			android:name=".ui.activity.MainActivity"
 			/>
 
-		<activity
-			android:name=".ui.activity.GalleryActivity"
-			android:theme="@style/AppTheme.Gallery"
-			/>
-
 		<meta-data
 			android:name="io.fabric.ApiKey"
 			android:value="e742288c224982139da48f33bd0b13ac2de42898"

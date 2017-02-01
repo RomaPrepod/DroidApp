@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.crashlytics.android.Crashlytics;
-import com.facebook.drawee.backends.pipeline.Fresco;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -24,7 +23,6 @@ public class App extends Application {
 	public void onCreate() {
 		super.onCreate();
 		Fabric.with(this, new Crashlytics());
-		Fresco.initialize(this);
 		sApp = this;
 
 		registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {

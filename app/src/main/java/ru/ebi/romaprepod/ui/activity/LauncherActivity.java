@@ -25,7 +25,7 @@ public class LauncherActivity extends BaseActivity {
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		if (true) {
+		if (false) {
 			Auth0 auth0 = new Auth0(BuildConfig.AUTH0_CLIENT_ID, BuildConfig.AUTH0_DOMAIN);
 			lock = Lock.newBuilder(auth0, callback)
 					.closable(false)
